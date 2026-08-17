@@ -1,0 +1,16 @@
+{
+  "name": "@node-red-custom-nodes/node-red-nnp-seturl",
+  "version": "1.0.0",
+  "description": "NNP Node-RED set-URL node.",
+  "main": "nnp-setURL.js",
+  "author": "Nubo Native Platform",
+  "license": "ISC",
+  "node-red": {
+    "nodes": {
+      "nnp-setURL": "nnp-setURL.js"
+    }
+  },
+  "dependencies": {
+    "node-rest-client": "^3.1.1"
+  }
+}

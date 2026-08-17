@@ -1,0 +1,4 @@
+node_modules/
+*.log
+prod_node_modules/
+

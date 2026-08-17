@@ -1,0 +1,70 @@
+{
+    "common": {
+        "label": {
+            "payload": "Payload",
+            "topic": "Topic",
+            "name": "Name",
+            "username": "Username",
+            "password": "Password",
+            "property": "Property",
+            "selectNodes": "Select nodes...",
+            "expand": "Expand",
+            "endpoint" : "Endpoint",
+            "context_path" : "Context Path"
+            
+        },
+        "status": {
+            "connected": "connected",
+            "not-connected": "not connected",
+            "disconnected": "disconnected",
+            "connecting": "connecting",
+            "error": "error",
+            "ok": "OK"
+        },
+        "notification": {
+            "error": "<strong>Error</strong>: __message__",
+            "errors": {
+                "not-deployed": "node not deployed",
+                "no-response": "no response from server",
+                "unexpected": "unexpected error (__status__) __message__"
+            }
+        },
+        "errors": {
+            "nooverride": "Warning: msg properties can no longer override set node properties. See bit.ly/nr-override-msg-props"
+        }
+    },
+    "nnpSetURL": {
+        "label": {
+            "rules": "Rules",
+            "rule": "rule",
+            "set": "set __property__",
+            "change": "change __property__",
+            "delete": "delete __property__",
+            "move": "move __property__",
+            "changeCount": "change: __count__ rules",
+            "regex": "Use regular expressions",
+            "deepCopy": "Deep copy value",
+            "params": "URL Params"
+        },
+        "action": {
+            "set": "Set",
+            "change": "Change",
+            "delete": "Delete",
+            "move": "Move",
+            "toValue": "to the value",
+            "to": "to",
+            "search": "Search for",
+            "replace": "Replace with",
+            "url" : "URL Param"
+        },
+        "errors": {
+            "invalid-from": "Invalid 'from' property: __error__",
+            "invalid-json": "Invalid 'to' JSON property",
+            "invalid-expr": "Invalid JSONata expression: __error__",
+            "no-override": "Cannot set property of non-object type: __property__",
+            "invalid-prop": "Invalid property expression: __property__",
+            "invalid-json-data": "Invalid JSON data: __error__",
+            "errors.invalid-param-required" : "Param value not set: __properties__"
+        }
+    }
+}

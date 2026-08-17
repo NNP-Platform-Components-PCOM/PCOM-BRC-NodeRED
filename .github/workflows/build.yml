@@ -1,0 +1,31 @@
+name: build-and-publish
+
+# Thin caller: the actual build/publish/sign/scan logic lives in the shared
+# PCOM-CICD reusable pipeline. This repository only supplies the image inputs.
+#
+# Built for linux/amd64 only: native node modules and the builder base are amd64.
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+    branches: [main]
+  # Weekly rebuild so the image picks up fresh base + dependency updates.
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+  id-token: write        # cosign keyless signing
+  security-events: write # SARIF upload to the Security tab
+
+jobs:
+  pipeline:
+    uses: NNP-Platform-Components-PCOM/PCOM-CICD/.github/workflows/container-pipeline.yml@main
+    with:
+      image-name: pcom-brc-nodered
+      image-version: "runtime-3.1.0-v2"
+      platforms: linux/amd64

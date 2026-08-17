@@ -1,0 +1,276 @@
+[
+    {
+        "id": "1158c04f0ba5e003",
+        "type": "tab",
+        "label": "Quick Start",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9cb76b1419a65d20",
+        "type": "group",
+        "z": "1158c04f0ba5e003",
+        "name": "",
+        "style": {
+            "fill": "#addb7b",
+            "label": true
+        },
+        "nodes": [
+            "c54e747b793b9237",
+            "a74a4fb53062f509",
+            "461f1a40fa376cfb",
+            "d39d86ef9dc6ca18",
+            "04b5a7a163e5145b",
+            "570d6be7ad3383a4",
+            "ae9d95a987fb2966"
+        ],
+        "x": 114,
+        "y": 79,
+        "w": 992,
+        "h": 238
+    },
+    {
+        "id": "73252178b1184256",
+        "type": "group",
+        "z": "1158c04f0ba5e003",
+        "name": "",
+        "style": {
+            "fill": "#7fb7df",
+            "label": true
+        },
+        "nodes": [
+            "db04702db4c537aa",
+            "5b34559bbc6f8423",
+            "7c225490ae6dd7eb",
+            "de0e873f.2dde68"
+        ],
+        "x": 174,
+        "y": 359,
+        "w": 872,
+        "h": 198
+    },
+    {
+        "id": "c54e747b793b9237",
+        "type": "nnp-monitor",
+        "z": "1158c04f0ba5e003",
+        "g": "9cb76b1419a65d20",
+        "name": "nnp-monitor",
+        "scope": [
+            "a74a4fb53062f509",
+            "461f1a40fa376cfb",
+            "04b5a7a163e5145b"
+        ],
+        "uncaught": false,
+        "nodes": {
+            "a74a4fb53062f509": {
+                "label": "nnp-setURL"
+            },
+            "461f1a40fa376cfb": {
+                "label": "Open ASM API Call"
+            },
+            "04b5a7a163e5145b": {
+                "label": "Map Search Response"
+            }
+        },
+        "receiver": "",
+        "x": 210,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "a74a4fb53062f509",
+        "type": "nnp-setURL",
+        "z": "1158c04f0ba5e003",
+        "g": "9cb76b1419a65d20",
+        "name": "nnp-setURL",
+        "rules": [
+            {
+                "t": "set",
+                "p": "address",
+                "pt": "str",
+                "to": "req.params.search_str",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "url": "https://nominatim.openstreetmap.org",
+        "context_path": "/search?q=:address&format=json",
+        "x": 480,
+        "y": 120,
+        "wires": [
+            [
+                "461f1a40fa376cfb"
+            ]
+        ]
+    },
+    {
+        "id": "461f1a40fa376cfb",
+        "type": "http request",
+        "z": "1158c04f0ba5e003",
+        "g": "9cb76b1419a65d20",
+        "name": "Open ASM API Call",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 710,
+        "y": 120,
+        "wires": [
+            [
+                "04b5a7a163e5145b",
+                "570d6be7ad3383a4"
+            ]
+        ]
+    },
+    {
+        "id": "d39d86ef9dc6ca18",
+        "type": "http in",
+        "z": "1158c04f0ba5e003",
+        "g": "9cb76b1419a65d20",
+        "name": "Map Search Request",
+        "url": "/sample/map/search/:search_str",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 240,
+        "y": 120,
+        "wires": [
+            [
+                "a74a4fb53062f509"
+            ]
+        ]
+    },
+    {
+        "id": "04b5a7a163e5145b",
+        "type": "http response",
+        "z": "1158c04f0ba5e003",
+        "g": "9cb76b1419a65d20",
+        "name": "Map Search Response",
+        "statusCode": "",
+        "headers": {},
+        "x": 980,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "570d6be7ad3383a4",
+        "type": "debug",
+        "z": "1158c04f0ba5e003",
+        "g": "9cb76b1419a65d20",
+        "name": "Resonse Recvd",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 980,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "db04702db4c537aa",
+        "type": "inject",
+        "z": "1158c04f0ba5e003",
+        "g": "73252178b1184256",
+        "name": "API Tester",
+        "props": [
+            {
+                "p": "payload.search_str",
+                "v": "Example Organization",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 280,
+        "y": 400,
+        "wires": [
+            [
+                "5b34559bbc6f8423"
+            ]
+        ]
+    },
+    {
+        "id": "5b34559bbc6f8423",
+        "type": "http request",
+        "z": "1158c04f0ba5e003",
+        "g": "73252178b1184256",
+        "name": "Map Search API Invoker",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "body",
+        "url": "http://nnp-nodered-api-orch.nnp-pg:1880/pg/apiorch/sample/map/search/Example%20Organization",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 590,
+        "y": 400,
+        "wires": [
+            [
+                "7c225490ae6dd7eb"
+            ]
+        ]
+    },
+    {
+        "id": "7c225490ae6dd7eb",
+        "type": "debug",
+        "z": "1158c04f0ba5e003",
+        "g": "73252178b1184256",
+        "name": "Debug : Test Result",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "de0e873f.2dde68",
+        "type": "comment",
+        "z": "1158c04f0ba5e003",
+        "g": "73252178b1184256",
+        "name": "Read Me: \\n This flow is a example of how to test the Orhestrated API \\n Please change the context path \\n \"pg\" to \"<your-context>\" in the url",
+        "info": "",
+        "x": 610,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "ae9d95a987fb2966",
+        "type": "comment",
+        "z": "1158c04f0ba5e003",
+        "g": "9cb76b1419a65d20",
+        "name": "Read Me: \\n This a sample API orchestration \\n where the usage of \"nnp-setURL and \"nnp-monitor\" \\n usages are being show cased.",
+        "info": "",
+        "x": 540,
+        "y": 240,
+        "wires": []
+    }
+]
