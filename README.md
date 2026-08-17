@@ -6,11 +6,11 @@ contrib nodes, default flows and branding. Serves the editor on port **1880**.
 
 ## Image
 
-Published to GHCR on every push to `main`:
+Published to Docker Hub on every push to `main`:
 
 ```
-ghcr.io/nnp-platform-components-pcom/pcom-brc-nodered:runtime-3.1.0-v2
-ghcr.io/nnp-platform-components-pcom/pcom-brc-nodered:latest
+docker.io/nubons/pcom-brc-nodered:runtime-3.1.0-v2
+docker.io/nubons/pcom-brc-nodered:latest
 ```
 
 Architecture: `linux/amd64`.
@@ -19,7 +19,7 @@ Architecture: `linux/amd64`.
 
 ```bash
 docker run --rm -p 1880:1880 \
-  ghcr.io/nnp-platform-components-pcom/pcom-brc-nodered:runtime-3.1.0-v2
+  docker.io/nubons/pcom-brc-nodered:runtime-3.1.0-v2
 # open http://localhost:1880
 ```
 
