@@ -9,7 +9,7 @@
 # Build:
 #   docker build -t pcom-brc-nodered:runtime-3.1.0-v2 .
 
-ARG base_image=docker.io/nubons/pcom-brc-nodered-build
+ARG base_image=docker.io/nubonativesolution/pcom-brc-nodered-build
 ARG base_version=build-18-v1
 
 # ---- Build stage: install node modules (incl. vendored NNP nodes) -----------

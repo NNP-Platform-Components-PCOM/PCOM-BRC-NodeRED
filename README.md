@@ -9,8 +9,8 @@ contrib nodes, default flows and branding. Serves the editor on port **1880**.
 Published to Docker Hub on every push to `main`:
 
 ```
-docker.io/nubons/pcom-brc-nodered:runtime-3.1.0-v2
-docker.io/nubons/pcom-brc-nodered:latest
+docker.io/nubonativesolution/pcom-brc-nodered:runtime-3.1.0-v2
+docker.io/nubonativesolution/pcom-brc-nodered:latest
 ```
 
 Architecture: `linux/amd64`.
@@ -19,7 +19,7 @@ Architecture: `linux/amd64`.
 
 ```bash
 docker run --rm -p 1880:1880 \
-  docker.io/nubons/pcom-brc-nodered:runtime-3.1.0-v2
+  docker.io/nubonativesolution/pcom-brc-nodered:runtime-3.1.0-v2
 # open http://localhost:1880
 ```
 
